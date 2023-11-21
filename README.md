@@ -31,7 +31,7 @@ After successful login, userid is stored in cookie seesion.
 
 ********************************************
 # Logout
-In the home page, user can log out their account by clicking logout button on the upper right corner.
+In any page, user can logout their account by clicking logout button on the upper right corner.
 
 ********************************************
 # CRUD service
