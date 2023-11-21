@@ -3,8 +3,11 @@ Inventory management system
 Group: 50
 Name: 
 Kwan Siu Chiu
+
 Lee Wai Yip
+
 Chu Yin Hang
+
 Li Kai Ip
 
 
