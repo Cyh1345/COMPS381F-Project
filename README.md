@@ -51,6 +51,7 @@ Create operation is using post request, and all information is in body of reques
 ********************************************
 # CRUD service
 - Read
+
   There are two options to read and find restaurants list all information or searching by restaurant id.
 
 1) List all items
@@ -65,6 +66,7 @@ Create operation is using post request, and all information is in body of reques
 ********************************************
 # CRUD service
 - Update
+
 	The user can choose to update the target item information by clicking the corresponding edit button in the inventory table.
 	Only item name, type and quantity can be updated. 
 
@@ -74,6 +76,7 @@ Create operation is using post request, and all information is in body of reques
 ********************************************
 # CRUD service
 - Delete
+
 	The user can remove an item by clicking the corresponding delete button on the list.
 
 	Only the owner of the item can remove the items that they created.
