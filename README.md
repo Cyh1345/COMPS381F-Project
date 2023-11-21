@@ -52,7 +52,7 @@ Create operation is using post request, and all information is in body of reques
 # CRUD service
 - Read
 
-  There are two options to read and find restaurants list all information or searching by restaurant id.
+  There are two options, to read view all items or search by restaurant item ID, item name or type.
 
 1) List all items
 	By clicking list item on the navigation bar, user will be directed to display.ejs and all item details will be displayed.
@@ -68,9 +68,11 @@ Create operation is using post request, and all information is in body of reques
 - Update
 
 	The user can choose to update the target item information by clicking the corresponding edit button in the inventory table.
+
 	Only item name, type and quantity can be updated. 
 
 	For testing, user may either create an new item (Item ID:C310, Item name:Cola, Type:beverage, Quantity:10),
+
 	Or select the example provided above in the item list.
 
 ********************************************
