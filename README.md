@@ -1,104 +1,97 @@
-Restaurant management system
+Inventory management system
 
-Group: 11
+Group: 50
 Name: 
-XX (00000000),
-yy (00000100)
+Kwan Siu Chiu
+Lee Wai Yip
+Chu Yin Hang
+Li Kai Ip
+
 
 Application link: https://projectsample381.render.com/
 
 ********************************************
 # Login
-Through the login interface, each user can access the restaurant information management system by entering their username and password.
-
-Each user has a userID and password;
+Each user can access the inventory management system with their personal account.
+The accounts are as follows:
 [
-	{userid: user1, password: cs381},
-	{userid: user2, password: cs381},
-	{suerid: user3, password: cs381}
-
+	{userid: bryan, password: 1234},
+	{userid: sam, password: 1234},
+	{userid: ryan, password: 1234},
+	{userid: eric, password: 1234}
 ]
 
-After successful login, userid is stored in seesion.
+After successful login, userid is stored in cookie seesion.
 
 ********************************************
 # Logout
-In the home page, each user can log out their account by clicking logout.
+In the home page, user can log out their account by clicking logout button on the upper right corner.
 
 ********************************************
 # CRUD service
 - Create
--	A restaurant document may contain the following attributes with an example: 
-	1)	Restaurant Name (Shake Shack)
-	2)	Restaurant ID (00000003), restaurant id must be 8 digits
-	3)	Borough (Sha Tin)
-	4)	Street (null)
-	5)	Restaurant Telephone (26516828), telephone number must be 8 digits
-	6)	Cuisine (American)
-	7)	Description (... Very nice hamburger)
+-	A item document contains the following attributes with an example created already: 
+	1)	Item ID (C309)
+	2)	Item Name (Sprite)
+	3)	Type (beverage)
+	4)	Quantity (20)
+	5)	Owner ID (bryan)
 
-Restaurant Name and Restaurant ID is mandatory, and other attributes are optional.
+All attributes requires user input. Except owner id, it is automatically inserted by getting the current session user id.
 
-Create operation is post request, and all information is in body of request.
+Create operation is using post request, and all information is in body of request.
 
 ********************************************
 # CRUD service
 - Read
 -  There are two options to read and find restaurants list all information or searching by restaurant id.
 
-1) List all information
-	display.ejs will be displayed with all restaurant ID;
-	clicking on restaurant ID, the details will be shown;
+1) List all items
+-	By clicking list item on the navigation bar, user will be directed to display.ejs and all item details will be displayed.
 
-2) Searching by restaurant id
-	input id of restaurant you want to find (00000003);
-	id is in the body of post request, and in display.ejs restaurant id will be shown as link;
-	clicking on restaurant ID, the details will be displayed;
+2) Searching by selected criteria and input value
+-	By clicking search item on the navigation bar, you will be directed to searchitem.ejs and a form will be shown.
+-	User may select the search criteria, by item ID, item name or type.
+-	Both criteria and input value must match in order to get the item information.
+	Else, no item will be shown in the list.
 
 ********************************************
 # CRUD service
 - Update
--	The user can update the restaurant information through the details interface.
--	Among the attribute shown above, Restaurant ID cannot be changed. Since restaurant ID is fixed, restaurant ID is searching criteria for updating information. 
+-	The user can choose to update the target item information by clicking the corresponding edit button in the inventory table.
+-	Only item name, type and quantity can be updated. 
 
--	A restaurant document may contain the following attributes with an example: 
-	1)	Restaurant Name (Shake Shack)
-	2)	Borough (Tung Chung)
-	3)	Street (Tat Tung Road)
-	4)	Restaurant Telephone (29871728), telephone number must be 8 digits
-	5)	Cuisine (American)
-	6)	Description (... Very nice hamburger)
-
-	In example, we updated the borough, street and restaurant contact number.
+-	For testing, user may either create an new item (Item ID:C310, Item name:Cola, Type:beverage, Quantity:10),
+-	Or select the example provided above in the item list.
 
 ********************************************
 # CRUD service
 - Delete
--	The user can delete the restaurant information through the details interface.
+-	The user can remove an item by clicking the corresponding delete button on the list.
+-	Only the owner of the item can remove the items that they created.
+-	Other users deleting items which do not belong to them will be denied.
 
 ********************************************
 # Restful
 In this project, there are three HTTP request types, post, get and delete.
 - Post 
-	Post request is used for insert.
-	Path URL: /api/item/restaurantID/:restaurantID
-	Test: curl -X POST -H "Content-Type: application/json" --data '{"name": "Taro & Tea", "restaurangID":"00000004"}'localhost:8099/api/item/restaurantID/00000004/name/Taro & Tea
+	Post request is used for insert and update item.
+
+	*Insert item
+	Path URL: /api/insert
+	Test: curl -X POST -H "Content-Type: application/json" -d '{"itemID": "C313", "itemname": "chocolate", "type": "snacks", "quantity":"7", "ownerID":"sam"}' http://localhost:8099/api/insert
+
+	*Update item
+  	Path URL: /api/update
+  	Test: curl -X POST -H "Content-Type: application/json" -d '{"itemID":"C313","itemname": "chocolate-bar", "type": "snacks", "quantity":"15"}' http://localhost:8099/api/update
 
 - Get
-	Get request is used for find.
-	Path URL: /api/item/restaurantID/:restaurantID
-	Test: curl -X GET http://localhost:8099/api/item/restaurantID/00000002
+	Get request is used for searching the item.
+	Path URL: /api/search/:itemID
+	Test: curl -X GET localhost:8099/api/search/:C311
 
 - Delete
 	Delete request is used for deletion.
-	Path URL: /api/item/restaurantID/:restaurantID
-	Test: curl -X DELETE localhost:8099/api/item/restaurantID/00000002
+	Path URL: /api/delete/:_id/:ownerID
+	Test: curl -X DELETE localhost:8099/api/delete/:655c324fd9b87347d5b9b557/:ryan
 
-For all restful CRUD services, login should be done at first.
-
-
-curl -X POST -H "Content-Type: application/json" --data '{"name": "Taro & Tea", "restaurangID":"00000004"}' http://localhost:8099/api/item/restaurantID/00000004
-
-curl -X GET http://localhost:8099/api/item/restaurantID/00000002
-
-curl -X DELETE http://localhost:8099/api/item/restaurantID/00000002
