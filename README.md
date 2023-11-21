@@ -36,6 +36,7 @@ In the home page, user can log out their account by clicking logout button on th
 ********************************************
 # CRUD service
 - Create
+  
 	A item document contains the following attributes with an example created already: 
 	1)	Item ID (C309)
 	2)	Item Name (Sprite)
