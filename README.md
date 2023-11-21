@@ -1,7 +1,8 @@
 Inventory management system
 
 Group: 50
-Name: 
+Name:
+
 Kwan Siu Chiu
 
 Lee Wai Yip
@@ -17,6 +18,7 @@ Application link: https://comps381f-project-yb5a.onrender.com
 # Login
 Each user can access the inventory management system with their personal account.
 The accounts are as follows:
+
 [
 	{userid: bryan, password: 1234},
 	{userid: sam, password: 1234},
