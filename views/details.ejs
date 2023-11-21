@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        p{
+            font-size: 1.3em;
+        }
+    </style>
+</head>
+<body>
+    <div class="jumbotron text-center">
+        <h1>Items information</h1>
+    </div>
+    <div class="row">
+        <p>Item ID:  <% if (typeof (item.itemID) !== "undefined") { %><%= item.itemID %><% } %></p><br>
+        <p>Item Name:  <% if (typeof (item.itemname) !== "undefined") { %><%= item.itemname %><% } %></p><br>
+        <p>Type:  <% if (typeof (item.type) !== "undefined") { %><%= item.type %><% } %></p><br>
+        <p>Quantity:  <% if (typeof (item.quantity) !== "undefined") { %><%= item.quantity %><% } %></p><br>
+    </div>
+        <a href="/edit?_id=<%= item._id %>" >Update the information</a><br><br>
+        <a href="/delete?_id=<%= item._id %>&owner=<%= item.ownerID %>">Delete the information</a><br><br>
+        <a href="/home">Home</a>
+</body>
+</html>
+

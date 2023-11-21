@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Edit item</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <link rel="stylesheet" href="/public/assets/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/public/assets/css/magnific-popup.css" type="text/css" />
+    <link rel="stylesheet" href="/public/assets/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="/public/assets/css/templatemo-style.css" type="text/css" />
+</head>
+<body>
+    <section class="preloader">
+        <div class="spinner">
+            <span class="spinner-rotate"></span>
+        </div>
+    </section>
+
+
+   <!-- MENU -->
+    <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+        <div class="container">
+
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/home">Home</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-nav-first">
+                    <li><a href="/createitem" class="smoothScroll">Insert item</a></li>
+                    <li><a href="/find" class="smoothScroll">Search item</a></li>
+                    <li><a href="/list" class="smoothScroll">List item</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="section-btn"><a href="/logout">Logout</a></li>
+                </ul>
+           </div>
+        </div>
+    </section>
+
+   <!-- HOME -->
+    <section id="home" data-stellar-background-ratio="0.5">
+        <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="home-info">
+                            <h1>Update item information</h1>                  
+                        </div>
+                        <form action="/update" method="POST">
+
+                            <label for="itemID" value="itemitemID"><b>Item ID: <%= item.itemID %></b></label><br><br>
+                            <input type="text" name="itemID" value="<%= item.itemID %>" hidden>
+                             
+                            <label for="name"><b>Item Name*:</b></label>
+                            <input type="text" id="itemname" name="itemname" class="form-control" placeholder="" value= "<% if (item.itemname) { %><%= item.itemname %><% } %>" /><br><br>
+                                        
+                            <label for="type"><b>Type:</b></label>
+                            <input type="text" id="itemtype" name="itemtype" class="form-control" placeholder="" value ="<% if (item.type) { %><%= item.type %><% } %>" /><br><br>
+                        
+                            <label for="quantity"><b>Quantity:</b></label>
+                            <input type="text" id="itemquantity" name="itemquantity" class="form-control" placeholder="" value ="<% if (item.quantity) { %><%= item.quantity %><% } %>" /><br><br>
+                                        
+                            <input type="submit" value="update">
+                        </form>
+                    </div>                   
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/public/assets/js/jquery.js"></script>
+    <script src="/public/assets/js/bootstrap.min.js"></script>
+    <script src="/public/assets/js/jquery.stellar.min.js"></script>
+    <script src="/public/assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="/public/assets/js/smoothscroll.js"></script>
+    <script src="/public/assets/js/custom.js"></script>
+
+</body>
+</html>
