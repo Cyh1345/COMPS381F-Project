@@ -86,7 +86,8 @@ Create operation is using post request, and all information is in body of reques
 ********************************************
 # Restful
 In this project, there are three HTTP request types, post, get and delete.
-- Post 
+- Post
+
 	Post request is used for insert and update item.
 
 	*Insert item
@@ -102,6 +103,7 @@ In this project, there are three HTTP request types, post, get and delete.
   	Test: curl -X POST -H "Content-Type: application/json" -d '{"itemID":"C313","itemname": "chocolate-bar", "type": "snacks", "quantity":"15"}' http://localhost:8099/api/update
 
 - Get
+
 	Get request is used for searching the item.
 
 	Path URL: /api/search/:itemID
@@ -109,6 +111,7 @@ In this project, there are three HTTP request types, post, get and delete.
 	Test: curl -X GET localhost:8099/api/search/:C311
 
 - Delete
+
 	Delete request is used for deletion.
 
 	Path URL: /api/delete/:_id/:ownerID
