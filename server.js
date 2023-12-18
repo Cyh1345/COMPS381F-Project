@@ -15,7 +15,8 @@ const SECRETKEY = '1234';
 var usersinfo = new Array(
     {name: "ryan", password: "1234"},
     {name: "bryan", password: "1234"},
-    {name: "sam", password: "1234"}
+    {name: "sam", password: "1234"},
+    {name: "eric", password: "1234"}
 );
 
 var documents = {};
